@@ -1,0 +1,26 @@
+<p>Las notas de los estudiantes son:</p>
+<div *ngFor="let estudiante of estudiantes">
+    <p *ngIf="estudiante.nota >=5">
+       <!-- {{estudiante.nombre}} obtuvo una nota de {{estudiante.nota}} y aprobó el curso de {{estudiante.curso}}-->
+    </p>
+    <p [ngClass]="estudiante.nota<5 ? 'nopaso' : 'paso'">
+{{estudiante.nombre}}, Nota: {{estudiante.nota}}, Curso: {{estudiante.curso}}
+    </p>
+</div>
+
+<h2 class="text-decoration-underline">Los alumnos que aprobaron son:</h2>  <button class="btn btn-light btn-sm" (click)="div1Function()" (dblclick)="div2Function()">Ver</button> 
+
+<div *ngIf="div1" class="d-flex justify-content-center align-items-center flex-column mt-3">
+    <div *ngFor="let estudiante of estudiantes">
+        <div *ngIf="estudiante.Aprobo">        
+            <h3  >{{estudiante.nombre}} como desarrollador de {{estudiante.curso}} </h3>                
+        </div>
+    </div>  
+
+    <button class="btn btn-light btn-sm" *ngIf="div1" (click)="div2Function()">Ocultar</button>
+</div>
+
+<div>
+    {{birthday | date: 'yyyy/MM/dd'}}
+</div>
+
